@@ -41,6 +41,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_063130) do
 
   create_table "articles", charset: "utf8", force: :cascade do |t|
     t.integer "category_id", null: false
+    t.integer "detail_id", null: false
+    t.integer "shipping_detail_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "shippng_day_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
