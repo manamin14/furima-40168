@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
     @user = User.new
   end
 
-
   private
 
   def message_params
