@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_063130) do
     t.integer "detail_id", null: false
     t.integer "shipping_detail_id", null: false
     t.integer "prefecture_id", null: false
-    t.integer "shippng_day_id", null: false
+    t.integer "shipping_day_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,6 +54,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_063130) do
     t.string "title", null: false
     t.text "description", null: false
     t.integer "price", null: false
+    t.integer "category_id", null: false
+    t.integer "detail_id", null: false
+    t.integer "shipping_detail_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "shipping_day_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_items_on_user_id"

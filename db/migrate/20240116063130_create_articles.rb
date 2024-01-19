@@ -5,7 +5,7 @@ class CreateArticles < ActiveRecord::Migration[7.0]
       t.integer :detail_id ,null: false
       t.integer :shipping_detail_id ,null: false
       t.integer :prefecture_id ,null: false
-      t.integer :shippng_day_id ,null: false
+      t.integer :shipping_day_id ,null: false
 
       t.timestamps
     end

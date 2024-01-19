@@ -3,12 +3,17 @@ class ItemsController < ApplicationController
   end
 
   def  new
-    @user = User.new
+    @item = Item.new
   end
 
+  def create
+    Item.new(item_params)
+    redirect_to '/'
+  end
   private
 
-  def message_params
-    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  def item_params
+    params.require(:item).permit(:title, :description, :category_id, :detail_id, :shipping_detail_id, :shipping_day_id, :prefecture_id, :price, :image)
   end
+  
 end
