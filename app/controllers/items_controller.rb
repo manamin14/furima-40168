@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :move_to_index, except: [:index, :show]
+  before_action :set_tweet, only: [:edit, :update]
   def index
     @items = Item.order("created_at DESC")
   end
@@ -30,6 +32,14 @@ class ItemsController < ApplicationController
     item.update(item_params)
     redirect_to item_path
   end
+
+  def move_to_index
+    item = Item.find_by(id: params[:id])
+    unless item && user_signed_in? && item.user_id == current_user.id
+      redirect_to action: :index
+    end
+  end
+  
 
   private
 
