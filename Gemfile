@@ -91,3 +91,5 @@ gem 'active_hash'
 gem 'faker'
 
 gem 'pry-rails'
+
+gem 'faker'
