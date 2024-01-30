@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city_name, :street_address, :building_name, :phone_number, :order_id
+  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city_name, :street_address, :building_name, :phone_number, :order_id, :token
 
   with_options presence: true do
     validates :user_id
@@ -10,6 +10,7 @@ class OrderAddress
     validates :city_name, presence: true
     validates :street_address, presence: true
     validates :phone_number, presence: true, format: { with: /\A\d{10,11}\z/, message: "は無効な形式です。10桁または11桁の半角数値を入力してください。" }
+    validates :token, presence: true
 end
 
   def save

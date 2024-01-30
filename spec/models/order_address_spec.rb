@@ -8,7 +8,7 @@ describe '購入情報の保存' do
   end
 
   context '商品が正常に購入できる場合' do
-    it 'postal_code、prefecture_id、city_name、street_address、phone_numberが入力されていれば保存できる' do
+    it 'postal_code、prefecture_id、city_name、street_address、phone_number、tokenが入力されていれば保存できる' do
       expect(@order_address).to be_valid
     end
     it 'building_nameは空でも保存できること' do
@@ -63,6 +63,11 @@ describe '購入情報の保存' do
       @order_address.phone_number = '123-3333-6789'
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Phone number は無効な形式です。10桁または11桁の半角数値を入力してください。")
+    end
+    it "tokenが空では登録できないこと" do
+      @order_address.token = ''
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Token can't be blank")
     end
   end
 end

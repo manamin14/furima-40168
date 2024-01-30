@@ -93,3 +93,7 @@ gem 'faker'
 gem 'pry-rails'
 
 gem 'faker'
+
+gem 'payjp'
+
+gem 'gon'
