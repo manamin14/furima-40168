@@ -69,5 +69,15 @@ describe '購入情報の保存' do
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Token can't be blank")
     end
+    it "user_idと紐づいていない場合は保存できない"do
+    @order_address.user_id = nil
+    @order_address.valid?
+    expect(@order_address.errors.full_messages).to include( "User can't be blank")
+  end
+  it "item_idと紐づいていない場合は保存できない"do
+  @order_address.item_id = nil
+  @order_address.valid?
+  expect(@order_address.errors.full_messages).to include("Item can't be blank")
+end
   end
 end
